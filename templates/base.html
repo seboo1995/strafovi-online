@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/icomoon/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
+
+    <!--custom style-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }} ">
+
+
+    <title>Strafovi Online</title>
+  </head>
+  <body>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #0a4275;">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">
+            <!-- Section: CTA -->
+            <section class="">
+              <p class="d-flex justify-content-center align-items-center">
+                <span class="me-3">Вршиме достава во Скопје</span> <hr>
+                <button type="button" class="btn btn-outline-light btn-rounded">
+                 Пријави се
+                </button>
+              </p>
+            </section>
+            <!-- Section: CTA -->
+          </div>
+          <!-- Grid container -->
+      
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">Штрафови Онлајн</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </section>
+
+    <script src=" {{ url_for('static', filename='js/jquery-3.3.1.min.js') }} "></script>
+    <script src=" {{ url_for('static',filename='js/popper.min.js') }} "></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="static/js/jquery.sticky.js"></script>
+    <script src="{{ url_for('static' ,filename = 'js/main.js') }}"></script>
+  </body>
+</html>
+
+</body>
+</html>
