@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.wsgi
+eb: gunicorn --bind 0.0.0.0:$PORT app:app
