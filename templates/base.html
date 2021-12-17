@@ -29,7 +29,13 @@
 
     {% endblock %}
 
-    <section class="">
+    <div style="margin-top: 10%;">
+
+    {% block ponudi %}
+    {% endblock %}
+  </div>
+
+    <section style="margin-top: 20%;"">
         <!-- Footer -->
         <footer class="text-center text-white" style="background-color: #0a4275;">
           <!-- Grid container -->
@@ -63,7 +69,5 @@
     <script src="static/js/jquery.sticky.js"></script>
     <script src="{{ url_for('static' ,filename = 'js/main.js') }}"></script>
   </body>
-</html>
 
-</body>
 </html>

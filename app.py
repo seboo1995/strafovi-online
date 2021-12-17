@@ -1,6 +1,5 @@
 from os import read, readlink
-from flask import Flask,render_template,url_for
-
+from flask import Flask,render_template,url_for,request
 
 
 
@@ -11,7 +10,6 @@ with open('categories.txt') as cat:
 
 @app.route('/')
 def index():
-    print(categories)
     return render_template('index.html',categories = categories)
 
 

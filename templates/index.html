@@ -86,17 +86,19 @@
     <div>
       <div class="card-deck">
           {% for post in categories %}
-          <div class="card" style="min-width: 25rem; max-width: 22rem; margin-top: 5px;">
+          <div class="card"">
               <div class="card-body">
                 <a href='#'      >
-                <h5>{{ post }}</h5> </a>
-                      <img class="card-img card-img-top" src=" {{ url_for('static', filename='images/categories_images/%s.jpg' % loop.index) }} "/>
+                <h3>{{ post }}</h3> </a>
+                      <img style="width: 80%; height: 80%;" src=" {{ url_for('static', filename='images/categories_images/%s.jpg' % loop.index) }} "/>
+                 
               </div>
           </div>
           </a>
           {% endfor %}
       </div>
   </div>
+  <iframe src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=du5yj3nd1j" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen></iframe>
 {% endblock body %}
 
   
