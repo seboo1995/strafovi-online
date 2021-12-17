@@ -1,4 +1,3 @@
-from os import read, readlink
 from flask import Flask,render_template,url_for,request
 
 
@@ -14,4 +13,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True  )
+    app.run(debug=True)
