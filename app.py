@@ -13,23 +13,41 @@ db = SQLAlchemy(app)
 
 
 
-with open('categories.txt') as cat:
-    categories = cat.readlines()
 
 
 @app.route('/')
 def index():
+    with open('categories.txt') as cat:
+        categories = cat.readlines()
+
+    categories = [i.strip() for i in categories]
     return render_template('index.html',categories = categories)
 
 @app.route('/<category>')
 def category(category):
-    if category == 'strafovi':
-        k = db.engine.execute('SELECT * FROM strafovi WHERE Ime LIKE "%штраф%"').all()
+    if category == 'Штрафови':
+        tip_strafovi = db.engine.execute('SELECT * FROM strafovi').all()
+        t = set()
+        pics = {}
+        for tip in tip_strafovi:
+            t.add(tip.Ime)
+            pics[tip.Ime] = tip.Slika
+        print(pics)
+        return render_template('categories.html', category='Штрафови', items=t, pictures=pics)
 
     else:
         return  ("NSASASSASSSS")
 
+@app.route('/product')
+def product():
+   kategorija  = request.args.get('kategorija', None)
+   pod_kategorija = request.args.get('pod_kategorija',None)
 
+   podatoci = db.engine.execute(f'''
+   SELECT * FROM {kategorija} WHERE Ime = {pod_kategorija}
+   ''')
+
+   return render_template('')
 
 
 if __name__ == '__main__':
