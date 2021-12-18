@@ -12,3 +12,5 @@ ibmcloudenv = "*"
 flask = ">=1.0.0"
 prometheus_client = "*"
 flasgger = "*"
+pandas = '==1.3.5'
+Flask-SQLAlchemy = '==2.5.1'
