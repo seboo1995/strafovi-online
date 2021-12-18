@@ -3,70 +3,12 @@
 
 
 {% block body %}
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
-          </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
 
 
-      <div class="top-bar">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <a href="mailto:sebair_selmani@yahoo.com" class=""><span class="mr-2  icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">sebair_selmani@yahoo.com</span></a>
-              <span class="mx-md-2 d-inline-block"></span>
-              <a href="tel:0038975648522" class=""><span class="mr-2  icon-phone"></span> <span class="d-none d-md-inline-block">075 648 522</span></a>
 
 
-              <div class="float-right">
-
-                <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span class="d-none d-md-inline-block">Twitter</span></a>
-                <span class="mx-md-2 d-inline-block"></span>
-                <a href="#" class=""><span class="mr-2  icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-
-        <div class="container">
-          <div class="row align-items-center position-relative">
 
 
-            <div class="site-logo">
-              <a href="." class="text-black"><span class="text-primary small-text">Штрафови</a>
-            </div>
-
-            <div class="col-12">
-              <nav class="site-navigation text-right ml-auto " role="navigation">
-
-                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                  <li><a href="." class="nav-link">Производи</a></li>
-                  <li><a href="." class="nav-link">Категории</a></li>
-                  <li><a href="." class="nav-link">Контакт</a></li>
-                  <li><a href="." class="nav-link">Најaви се</a></li>
-                </ul>
-              </nav>
-
-            </div>
-            
-
-            <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-          </div>
-        </div>
-
-      </header>
       
 
     <div class="hero image" style="background-image: url('../static/images/strafovi.jpg');">
@@ -86,19 +28,21 @@
     <div>
       <div class="card-deck">
           {% for post in categories %}
-          <div class="card"">
+          <a href='{{url_for("category", category="%s"%post)}}' >
+          <div class="card">
+
               <div class="card-body">
-                <a href='#'      >
-                <h3>{{ post }}</h3> </a>
+
+                <h3>{{post}}</h3> </a>
                       <img style="width: 80%; height: 80%;" src=" {{ url_for('static', filename='images/categories_images/%s.jpg' % loop.index) }} "/>
-                 
+
               </div>
           </div>
           </a>
           {% endfor %}
       </div>
   </div>
-  <iframe src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=du5yj3nd1j" width="100%" height="480" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen></iframe>
+</div>
 {% endblock body %}
 
   
