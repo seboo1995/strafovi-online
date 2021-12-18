@@ -1,4 +1,4 @@
-ID,Ime,Za,Debelina,Dolzina,Glava,Cena,Navoj(cekor),Slika
+Di,Ime,Za,Debelina,Dolzina,Glava,Cena,Navoj(cekor),Slika
 1,Хол Штраф,Дрво,4,16,Крстач(Фрез),0,,hol_straf.jpg
 2,Хол Штраф,Дрво,4,18,Крстач(Фрез),0,,hol_straf.jpg
 3,Хол Штраф,Дрво,4,20,Крстач(Фрез),0,,hol_straf.jpg
@@ -198,4 +198,3 @@ ID,Ime,Za,Debelina,Dolzina,Glava,Cena,Navoj(cekor),Slika
 197,Салонит штрафови,Дрво,6,140,Клуч (10мм),0,,salonit.jpeg
 198,Салонит штрафови,Дрво,6,160,Клуч (10мм),0,,salonit.jpeg
 199,Салонит штрафови,Дрво,6,180,Клуч (10мм),0,,salonit.jpeg
-,Nova kategorija,,,,,,,
