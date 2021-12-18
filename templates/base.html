@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='fonts/icomoon/style.css') }}">
 
@@ -92,40 +95,11 @@
 
     {% endblock %}
 
-    <div style="margin-top: 10%;">
-
-
-  </div>
-
-    <section style="margin-top: 20%; class='footer'>
-        <footer class='text-center text-white'>
-          <!-- Grid container -->
-          <div class='container p-4 pb-0'>
-            <!-- Section: CTA -->
-            <section>
-              <p class='d-flex justify-content-center align-items-center'>
-                <span class='me-3'>Вршиме достава во Скопје</span> <hr>
-                <button type='button' class='btn btn-outline-light btn-rounded'>
-                 Пријави се
-                </button>
-              </p>
-            </section>
-            <!-- Section: CTA -->
-            </div>
-        </footer>
-        </section>
-
-
-          <!-- Copyright -->
-          <div class='text-center p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
-            © 2021 Copyright:
-            <a class='text-white' href='https://mdbootstrap.com/'>Штрафови Онлајн</a>
-          </div>
-          <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
-      </section>
-
+     <footer class="flex-shrink-0 py-4 bg-dark text-white-50 footer">
+    <div class="container text-center">
+      <small>Copyright &copy; Your Website</small>
+    </div>
+  </footer>
 
   </body>
 <script src='{{ url_for('static', filename='js/jquery-3.3.1.min.js') }} '</script>

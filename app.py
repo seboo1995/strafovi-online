@@ -8,6 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 make_database('database/baza.csv',name='strafovi')
 make_database('database/sajmni.csv', name='sajmni')
 make_database('database/navrtki.csv', name='navrtki')
+make_database('database/pop_ntini.csv', name='pop_nitni')
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///strafovi.db'
@@ -56,6 +58,20 @@ def category(category):
             pics[tip.Ime] = tip.Slika
         print(pics)
         return render_template('categories.html', category='Навртки', items=t, pictures=pics)
+
+    elif category == 'Поп нитни':
+        tip_nitni = db.engine.execute('SELECT * FROM pop_nitni').all()
+        t = set()
+        pics = {}
+        for tip in tip_nitni:
+            t.add(tip.Ime)
+            pics[tip.Ime] = tip.Slika
+        print(pics)
+        return render_template('categories.html', category='Поп нитни', items=t, pictures=pics)
+
+    else:
+        return 'Under Construction'
+
 
 
 
