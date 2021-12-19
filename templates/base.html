@@ -26,7 +26,7 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
-
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }} ">
     <!--custom style-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }} ">
 
@@ -111,12 +111,15 @@
 
     {% endblock body %}
 
-     <footer id='footer' class="flex-shrink-0 py-4 bg-dark text-white-50 footer">
-    <div class="container text-center">
-      <small>Copyright &copy; Your Website</small>
-    </div>
-  </footer>
+    <footer class="page-footer font-small blue">
 
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://strafovi-online.herokuapp.com/"> StrafoviOnlajn.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
   </body>
 <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }} "></script>
     <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
