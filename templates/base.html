@@ -4,11 +4,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
+       <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap" rel="stylesheet">
+
+       <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='fonts/icomoon/style.css') }}">
 
@@ -16,6 +19,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+
+
     
     <!-- Style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
@@ -55,7 +62,7 @@
 
 
             <div class="site-logo">
-                <a href="." class="text-black"><span class="text-primary small-text">Штрафови</span></a>
+                <a href="{{url_for('index')}}" class="text-black"><span class="text-primary small-text">Штрафови</span></a>
             </div>
 
             <div class="col-12">
@@ -90,21 +97,34 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
+  <div class="hero image" style="background-image: url({{ url_for('static', filename='images/strafovi.jpg') }})">
+    <div class='text'>
+      <center>
+
+      <h1 class='text'> Добредојдовте во нашата продавница. </h1>
+    </center>
+    </div>
+    </div>
+
 
     {% block body %}
 
-    {% endblock %}
+    {% endblock body %}
 
-     <footer class="flex-shrink-0 py-4 bg-dark text-white-50 footer">
+     <footer id='footer' class="flex-shrink-0 py-4 bg-dark text-white-50 footer">
     <div class="container text-center">
       <small>Copyright &copy; Your Website</small>
     </div>
   </footer>
 
   </body>
-<script src='{{ url_for('static', filename='js/jquery-3.3.1.min.js') }} '</script>
-    <script src=' {{ url_for('static',filename='js/popper.min.js') }} '></script>
-    <script src='{{ url_for('static', filename = 'js/bootstrap.min.js') }}'></script>
-    <script src='static/js/jquery.sticky.js'></script>
-    <script src='{{ url_for('static' ,filename = 'js/main.js') }}'></script>
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }} "></script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.sticky.js') }}"></script>
+    <script src="{{ url_for('static' ,filename = 'js/main.js') }}"></script>
+
+  <script src='https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js'></script>
+  <script src='https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js'></script>
+    <script src="{{ url_for('static',filename='js/table.js') }}"></script>
 </html>

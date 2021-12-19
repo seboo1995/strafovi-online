@@ -4,6 +4,27 @@ import pandas
 from flask_sqlalchemy import SQLAlchemy
 
 
+map_name = {
+    'Штрафови':'strafovi',
+    'Навртки':'navrtki',
+    'Подлошки(Шајмни)':'sajmni',
+    'Поп нитни':'pop_nitni'
+}
+map_col_names = {
+    'Ime': 'Име',
+    'Za': 'За',
+    'Debelina': 'Дебелина',
+    'Dolzina': 'Должина',
+    'Glava': 'Глава',
+    'Cena': 'Цена',
+    'Dimenzija':'Димензија',
+    'Sirocina': 'Широчина',
+    'ID':'ID',
+    'Navoj(cekor)':'Навој(Чекор)',
+    'Golemina':'Големина'
+
+}
+
 # make update to the database
 make_database('database/baza.csv',name='strafovi')
 make_database('database/sajmni.csv', name='sajmni')
@@ -27,7 +48,7 @@ def index():
     categories = [i.strip() for i in categories]
     return render_template('index.html',categories = categories)
 
-@app.route('/<category>')
+@app.route('/kategorija/<category>')
 def category(category):
     if category == 'Штрафови':
         tip_strafovi = db.engine.execute('SELECT * FROM strafovi').all()
@@ -47,7 +68,7 @@ def category(category):
             t.add(tip.Ime)
             pics[tip.Ime] = tip.Slika
         print(pics)
-        return render_template('categories.html', category='Подлошки(шајмни)', items=t, pictures=pics)
+        return render_template('categories.html', category='Подлошки(Шајмни)', items=t, pictures=pics)
 
     elif category == 'Навртки':
         tip_navrtki = db.engine.execute('SELECT * FROM navrtki').all()
@@ -75,16 +96,18 @@ def category(category):
 
 
 
-@app.route('/product')
-def product():
-   kategorija  = request.args.get('kategorija', None)
-   pod_kategorija = request.args.get('pod_kategorija',None)
+@app.route('/product/<kategorija>/<pod_kategorija>')
+def product(kategorija,pod_kategorija):
+    query = db.engine.execute(f'SELECT* FROM "{map_name[kategorija]}" WHERE Ime="{pod_kategorija}"').all()
+    slika = query[0].Slika
 
-   podatoci = db.engine.execute(f'''
-   SELECT * FROM {kategorija} WHERE Ime = {pod_kategorija}
-   ''')
-
-   return render_template('')
+    keys = [i for i in query[0].keys() if i!='Slika' and i!='index']
+    products = []
+    for prod in query:
+        temp = {x:prod[x] for x in keys}
+        products.append(temp)
+    keys = [map_col_names[i] for i in keys]
+    return render_template('product.html',kategorija=kategorija, pod_kategorija=pod_kategorija,products = products, slika=slika, columns=keys)
 
 
 if __name__ == '__main__':
