@@ -8,7 +8,8 @@ map_name = {
     'Штрафови':'strafovi',
     'Навртки':'navrtki',
     'Подлошки(Шајмни)':'sajmni',
-    'Поп нитни':'pop_nitni'
+    'Поп нитни':'pop_nitni',
+    'Осигурачи':'osiguraci'
 }
 map_col_names = {
     'Ime': 'Име',
@@ -30,6 +31,7 @@ make_database('database/baza.csv',name='strafovi')
 make_database('database/sajmni.csv', name='sajmni')
 make_database('database/navrtki.csv', name='navrtki')
 make_database('database/pop_ntini.csv', name='pop_nitni')
+make_database('database/osiguraci.csv', name='osiguraci')
 
 
 app = Flask(__name__)
@@ -90,6 +92,16 @@ def category(category):
         print(pics)
         return render_template('categories.html', category='Поп нитни', items=t, pictures=pics)
 
+    elif category == 'Осигурачи':
+        tip_osiguraci = db.engine.execute('SELECT * FROM osiguraci').all()
+        t = set()
+        pics = {}
+        for tip in tip_osiguraci:
+            t.add(tip.Ime)
+            pics[tip.Ime] = tip.Slika
+        print(pics)
+        return render_template('categories.html', category='Осигурачи', items=t, pictures=pics)
+
     else:
         return 'Under Construction'
 
@@ -106,7 +118,7 @@ def product(kategorija,pod_kategorija):
     for prod in query:
         temp = {x:prod[x] for x in keys}
         products.append(temp)
-    keys = [map_col_names[i] for i in keys]
+    keys = [map_col_names[i.strip()] for i in keys]
     return render_template('product.html',kategorija=kategorija, pod_kategorija=pod_kategorija,products = products, slika=slika, columns=keys)
 
 
