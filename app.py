@@ -44,6 +44,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
+    print('index')
     with open('categories.txt') as cat:
         categories = cat.readlines()
 
