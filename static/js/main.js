@@ -112,3 +112,34 @@ $(function() {
     
 
 })(jQuery);
+$(document).ready(function() {
+
+function checkFN(){
+   //function to hide delete button if table is empty
+   var x = document.getElementById("tasksFN").rows.length;
+   if(x == 0){
+       $("#delFN").hide();
+   }else{
+        $("#delFN").show();
+   }
+}
+
+//function to add a new row from the data in the textbox to the table
+$("#addFN").click(function() {
+     var val = $("#newFN").val();
+     var newTxt = $('<tr><td><input type="checkbox" class="checkbox"></td><td>' + val + '</td></tr>');
+     $('#myTable').append('<tr><td>' + val + '</td></tr>');
+     $("#tasksFN").append(newTxt);
+     $("#newFN").val("");
+     $("#delFN").show();
+});
+
+//function for delete button to remove checked rows
+$("#delFN").click(function() {
+     $(".checkbox:checked").each(function() {
+        $(this).closest('tr').remove();
+     });
+     checkFN();//checks if delete button should be hidden or not
+});
+
+});
