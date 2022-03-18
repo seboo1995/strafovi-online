@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+/* Toggle Styles */
+
+#viewport {
+  padding-left: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+
+
+@media only screen and (max-width: 600px) {
+h5{
+    font-size:0.8rem;
+}
+.mb-5{
+    margin-right: 3px;
+}
+.text-center{
+    font-size:0.8rem;
+}
+}
+
+
+footer{
+  background-color: #181716;
+  position: absolute;
+  right: 0;
+  left:0;
+  margin-top:1rem;
+}
+
+.fill-img{
+ flex-shrink: 0;
+ min-height: 65%;
+ min-width: 100%;
+
+}
