@@ -1,21 +1,81 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}       
+
+
+{% block content %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style_product.css') }}">
 
 
 
-{% block body %}
-<center style="margin-top:2%; margin-bottom:1%;">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="    https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
-    <h3>    <a href="{{url_for('index')}}"> Категории на производи </a>  >  <a href="{{url_for('category', category=kategorija)}}"> {{ kategorija }} </a> > <a href=""> {{pod_kategorija}} </a> </h3>
-</center>
-
-<div style="margin-left:30%; width=500px; height=500px;">
-<img class="product_picture" src=" {{ url_for('static', filename='images/categories_images/%s' %slika) }} "/>
 
 
+
+    <div class="container">
+      
+        <div class="row">
+          <div class="col-sm">
+            <div class="d-flex justify-content-center">
+                <a onclick="history.back()" class="btn btn-lg" style="margin-right: 5%;" >
+                    <span class="bi bi-arrow-left"  ></span>
+                </a>
+                
+          </div>
+          <div class="sidebar">
+            {% for kat in kategorii %}
+            <a class="btn btn-outline-dark mt-auto" href="{{kat}}">{{kat}}</a>
+            {% endfor %}
+          </div>
+          </div>
+          
+          
+          
+          
+          
+          <div class="col-sm">
+            <img  src="static/images/{{slika}}" class="rounded float-left" alt="{{slika}}" style="width: 300px; height: 300px;">
+          </div>
+
+
+
+          
+          <div class="col-sm">
+            <div class="text-center">
+            <h1> {{name}}</h1>
+            
+            <p> Овој производ се корисити за {{velicini[0].Za}} </p>
+          
+            <p> Ве молиме одберете величина</p>
+            <select class="selectpicker form-control" id="select-size">
+              <option value="Izberete" selected disabled hidden >Izberete</option>
+
+              {% for item in velicini %}
+
+              <option value="{{item.Debelina}} x {{item.Dolzina}}" data-item="{{item}}">{{item.Debelina|replace('.0','')}} x {{item.Dolzina}}</option>
+             
+              {% endfor %}
+          
+            </select>
+
+            <div id="prod-info">
+                   
+            
+
+
+
+              <div class="center" id='add_to_cart' hidden>
+                <div class="buttons d-flex flex-row">
+                    <button class="btn btn-success cart-button px-5"><span class="dot"></span>Add to cart </button>
+                </div>
+            </div>
+          </div>
+          
+
+
+        </div>
+        </div>
+      </div>
 
 </div>
+      
+      
 {% endblock %}
+
